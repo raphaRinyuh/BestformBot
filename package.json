@@ -21,6 +21,7 @@
 		"@types/node": "^20.11.15",
 		"discord.js": "^14.14.1",
 		"dotenv": "^16.4.1",
+		"mongodb": "^6.3.0",
 		"ts-node": "^10.9.2",
 		"typescript": "^5.3.3"
 	},
