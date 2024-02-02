@@ -38,7 +38,7 @@ export const setClientCommands = (bot: Client) => {
 
 			// The put method is used to fully refresh all commands in the guild with the current set
 			const data = await rest.put(
-				Routes.applicationCommands(process.env.APP_ID),
+				Routes.applicationGuildCommands(process.env.APP_ID, process.env.GUILD_ID),
 				{ body: commandsLocal },
 			);
 
