@@ -1,6 +1,13 @@
 import dotenv from 'dotenv';
 import { Client, Events, GatewayIntentBits, Interaction } from 'discord.js';
 import { setClientCommands } from './Commands';
+import { connectToMongoDatabase } from './services/database.service';
+import { abmahnungEndpoint } from './endpoints/abmahnungen.endpoint';
+
+connectToMongoDatabase();
+const data = abmahnungEndpoint('GET');
+
+console.log(data);
 
 dotenv.config();
 
