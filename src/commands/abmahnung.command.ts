@@ -1,4 +1,4 @@
-import { CommandInteraction, PermissionFlagsBits, SlashCommandBuilder } from 'discord.js';
+import { CommandInteraction, SlashCommandBuilder } from 'discord.js';
 
 module.exports = {
 	data: new SlashCommandBuilder()
@@ -9,10 +9,17 @@ module.exports = {
 				.setName('target')
 				.setDescription('Who gets the Abmahnung')
 				.setRequired(true))
-		.setDefaultMemberPermissions(PermissionFlagsBits.Connect)
+		.addStringOption(options =>
+			options
+				.setName('reason')
+				.setDescription('Warum kassiert er die Abmahnung?')
+				.setRequired(true))
 		.setDMPermission(false),
 	async execute(interaction: CommandInteraction) {
+		if (!interaction.isChatInputCommand()) return;
+
 		const target = interaction.options.getUser('target') ?? 'User not found';
-		await interaction.reply(`${target}`);
+		const reason = interaction.options.getString('reason') ?? 'No Reason provided';
+		await interaction.reply(`${target} kassiert eine Abmahnung mit dem Grund: ${reason}`);
 	},
 };
