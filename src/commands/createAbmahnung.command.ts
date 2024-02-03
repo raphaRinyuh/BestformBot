@@ -31,8 +31,7 @@ async function addAbmahnungToDb(interaction: CommandInteraction): Promise<{ targ
 	if (!target) throw Error('No Target found');
 	const reason = interaction.options.getString('reason') ?? 'No Reason provided';
 
-	const response = await createNewAbmahnung(new Abmahnung(target.id, reason, interaction.user.id, new Date()));
-	console.log(response.response);
+	await createNewAbmahnung(new Abmahnung(target.id, reason, interaction.user.id, new Date()));
 
 	return { target: target, reason: reason };
 }
