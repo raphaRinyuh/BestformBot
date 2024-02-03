@@ -6,7 +6,7 @@ import * as dotenv from 'dotenv';
 export const collections: { abmahnungen?: mongoDB.Collection } = {};
 
 // Initialize Connection
-export async function connectToMongoDatabase() {
+export default async function connectToMongoDatabase() {
 	dotenv.config();
 
 	if (!process.env.DB_CONN_STRING || !process.env.ABMAHNUNGEN_COLLECTION_NAME) return console.error('Required .env values are missing');
