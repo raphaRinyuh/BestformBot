@@ -2,7 +2,7 @@ type status = successStatus | errorStatus
 type successStatus = 'success';
 type errorStatus = 'error'
 
-export interface DbResponse {
+export interface DbResponse<T> {
 	status: status,
-	response: unknown
+	response: T
 }
