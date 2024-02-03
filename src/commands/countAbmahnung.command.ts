@@ -15,7 +15,7 @@ module.exports = {
 		if (!interaction.isChatInputCommand()) return;
 		const { target, count } = await countAbmahnungen(interaction);
 
-		await interaction.reply(`${target.displayName} hat ${count} Abmahnung(en)`);
+		await interaction.reply({ content: `${target.displayName} hat ${count} Abmahnung(en)`, ephemeral: true });
 	},
 };
 

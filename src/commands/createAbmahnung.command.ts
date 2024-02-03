@@ -21,7 +21,7 @@ module.exports = {
 		if (!interaction.isChatInputCommand()) return;
 		const { target, reason } = await addAbmahnungToDb(interaction);
 
-		await interaction.reply(`${target} kassiert eine Abmahnung mit dem Grund: ${reason}`);
+		await interaction.reply({ content: `${target} kassiert eine Abmahnung mit dem Grund: ${reason}`, ephemeral: true });
 	},
 };
 
