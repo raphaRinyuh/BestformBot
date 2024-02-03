@@ -15,7 +15,7 @@ module.exports = {
 		if (!interaction.isChatInputCommand()) return;
 		const { target, count } = await countAbmahnungen(interaction);
 
-		await interaction.reply(`${target} hat schon ${count} Abmahnungen gesammelt`);
+		await interaction.reply(`${target.displayName} hat ${count} Abmahnung(en)`);
 	},
 };
 
@@ -25,7 +25,6 @@ async function countAbmahnungen(interaction: CommandInteraction): Promise<{ targ
 	if (!target) throw Error('No Target found');
 
 	const response = await countUserAbmahnungen(target.id);
-	console.log(response.status);
 
 	return { target: target, count: response.response as number };
 }
