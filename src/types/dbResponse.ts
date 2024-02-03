@@ -4,5 +4,5 @@ type errorStatus = 'error'
 
 export interface DbResponse {
 	status: status,
-	response: string
+	response: unknown
 }
