@@ -1,11 +1,11 @@
 {
     "compilerOptions": {
         "target": "ESNext",
-        "module": "commonjs",
+		"module": "CommonJS",
         "rootDir": "./src/",
         "outDir": "./dist/",
         "strict": true,
-        "moduleResolution": "node",
+		"moduleResolution": "Node",
         "importHelpers": true,
         "experimentalDecorators": true,
         "esModuleInterop": true,
@@ -18,13 +18,15 @@
             "node_modules/@types"
         ],
         "sourceMap": false,
-        "baseUrl": "./"
+		"baseUrl": "./src/",
     },
     "files": [
         "src/main.ts"
     ],
     "include": [
-        "./**/*.ts"
+		"./**/*.ts",
+		"./**/*.service.ts",
+		"./**/*.module.ts"
     ],
     "exclude": [
         "node_modules",
